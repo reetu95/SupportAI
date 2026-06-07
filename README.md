@@ -1,10 +1,10 @@
 ### SupportAI
 
-**SupportAI** is an end-to-end applied AI prototype for duplicate question detection and support-ticket deflection.
+**SupportAI** is an end to end applied AI prototype for duplicate question detection and support ticket deflection.
 
-The project explores how classical NLP, transformer fine-tuning, hybrid retrieval, and confidence-based routing can be combined to simulate the intelligence layer of a customer support automation system.
+The project explores how classical NLP, transformer fine tuning, hybrid retrieval, and confidence based routing can be combined to simulate the intelligence layer of a customer support automation system.
 
-This is **not yet a production-ready application**. It is complete as a modeling, retrieval, and evaluation prototype.
+This is **not yet a production ready application**. It is complete as a modeling, retrieval, and evaluation prototype.
 
 ---
 
@@ -33,16 +33,16 @@ The main business goal is not only high accuracy. The system must also avoid **f
 
 ## Project Background
 
-This project started from an older NLP idea around question-pair similarity using the Quora Question Pairs dataset.
+This project started from an older NLP idea around question pair similarity using the Quora Question Pairs dataset.
 
 I revisited the problem from a modern AI engineering perspective by combining:
 
 * classical NLP baselines
-* transformer fine-tuning
+* transformer fine tuning
 * model comparison
-* retrieval-augmented generation concepts
+* retrieval augmented generation concepts
 * hybrid retrieval
-* confidence-based decision routing
+* confidence based decision routing
 * custom validation
 * failure analysis
 
@@ -52,7 +52,7 @@ I revisited the problem from a modern AI engineering perspective by combining:
 
 ### 1. Quora Question Pairs
 
-Used for duplicate-question classification.
+Used for duplicate question classification.
 
 The task was to predict whether two questions are semantically duplicates.
 
@@ -101,7 +101,7 @@ I first built a baseline using:
 
 * TF-IDF vectorization
 * Logistic Regression
-* question-pair text combination
+* question pair text combination
 * classification metrics
 * confusion matrix analysis
 
@@ -121,7 +121,7 @@ The baseline had decent accuracy, but recall was low. It missed many duplicate q
 
 ### 2. Transformer Fine-Tuning
 
-I fine-tuned and compared multiple transformer models:
+I fine tuned and compared multiple transformer models:
 
 * DistilBERT
 * BERT
@@ -138,7 +138,7 @@ Best model:
 | ------- | -------: | --------: | -----: | -------: | ------: |
 | ELECTRA |    89.0% |     84.4% |  85.8% |    85.1% |   95.3% |
 
-ELECTRA was selected because it gave the best overall balance across F1-score and ROC-AUC.
+ELECTRA was selected because it gave the best overall balance across F1 score and ROC AUC.
 
 RoBERTa was also strong and was kept as a comparison model.
 
@@ -208,7 +208,7 @@ Custom validation results:
 | Known Intent Accuracy   | 66.7% |
 | Decision Accuracy       | 60.0% |
 
-This exposed an important limitation: the classifier was fine-tuned on Quora-style question pairs, not real support-domain question pairs.
+This exposed an important limitation: the classifier was fine tuned on Quora-style question pairs, not real support domain question pairs.
 
 ---
 
@@ -216,14 +216,14 @@ This exposed an important limitation: the classifier was fine-tuned on Quora-sty
 
 ### 1. Baseline recall was low
 
-The TF-IDF + Logistic Regression baseline had a recall of 57.7%.
+The TFIDF + Logistic Regression baseline had a recall of 57.7%.
 
 This meant the model missed many duplicate questions.
 
 How I handled it:
 
 * Used the baseline as a benchmark.
-* Moved to transformer fine-tuning for better semantic understanding.
+* Moved to transformer fine tuning for better semantic understanding.
 * Compared multiple transformer models instead of relying on one.
 
 ---
@@ -232,7 +232,7 @@ How I handled it:
 
 DeBERTa variants produced unstable or poor results in this setup.
 
-One model produced invalid scores, and another collapsed toward majority-class behavior.
+One model produced invalid scores, and another collapsed toward majority class behavior.
 
 How I handled it:
 
@@ -249,8 +249,8 @@ A model can have good accuracy but still miss many duplicates.
 
 How I handled it:
 
-* Evaluated precision, recall, F1-score, and ROC-AUC.
-* Used F1-score as a balanced model-selection metric.
+* Evaluated precision, recall, F1 score, and ROC-AUC.
+* Used F1 score as a balanced model selection metric.
 * Looked at recall carefully because support deflection depends on catching duplicate queries.
 * Looked at precision carefully because wrong automated answers create business risk.
 
@@ -280,7 +280,7 @@ How I handled it:
 
 * Identified the issue through custom validation.
 * Used confidence thresholds to reduce unsafe automatic answers.
-* Marked support-domain fine-tuning as the next major improvement.
+* Marked support domain fine tuning as the next major improvement.
 
 ---
 
@@ -319,7 +319,7 @@ The most valuable learning was that strong benchmark metrics do not guarantee st
 
 Current limitations:
 
-* The classifier is fine-tuned on Quora, not real support-domain duplicate pairs.
+* The classifier is fine tuned on Quora, not real support-domain duplicate pairs.
 * The support dataset is clean and may not represent production support data.
 * The custom validation set is small.
 * The project is not yet deployed as an API.
@@ -327,22 +327,6 @@ Current limitations:
 * No MLflow experiment tracking yet.
 * No Docker containerization yet.
 * No real company support-ticket data was used.
-
----
-
-## Future Improvements
-
-Planned next steps:
-
-* Fine-tune ELECTRA on support-domain pairs created from the Bitext dataset.
-* Add hard negative pairs between similar but different intents.
-* Modularize the codebase into reusable Python scripts.
-* Add FastAPI for inference.
-* Build a Streamlit dashboard.
-* Track experiments with MLflow.
-* Add Docker support.
-* Evaluate on larger and messier support datasets.
-* Add monitoring for false deflection and escalation rate.
 
 ---
 

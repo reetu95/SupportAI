@@ -1,0 +1,1 @@
+## SupportAI: AI-Powered Duplicate Question Detection and Support Ticket Deflection Using RAG and Fine-Tuned Transformers

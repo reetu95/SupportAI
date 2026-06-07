@@ -97,7 +97,7 @@ User question
 
 The system design below shows how a user question flows through the SupportAI pipeline, from hybrid retrieval to ELECTRA-based reranking and confidence-based decision routing.
 
-![SupportAI System Design](images/supportai_system_design.png)
+![SupportAI System Design](supportAI_System_Design.png)
 
 ---
 

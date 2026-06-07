@@ -1,0 +1,50 @@
+{
+  "build": "hb4cf58c_1",
+  "build_number": 1,
+  "channel": "https://repo.anaconda.com/pkgs/main/osx-arm64",
+  "constrains": [
+    "zlib 1.3.1"
+  ],
+  "depends": [
+    "__osx >=12.1"
+  ],
+  "extracted_package_dir": "/opt/miniconda3/pkgs/libzlib-1.3.1-hb4cf58c_1",
+  "files": [
+    "lib/libz.1.3.1.dylib",
+    "lib/libz.1.dylib"
+  ],
+  "fn": "libzlib-1.3.1-hb4cf58c_1.conda",
+  "license": "Zlib",
+  "link": {
+    "source": "/opt/miniconda3/pkgs/libzlib-1.3.1-hb4cf58c_1",
+    "type": 1
+  },
+  "md5": "6cdcab9318862201eb86f27e7efcb7e8",
+  "name": "libzlib",
+  "package_tarball_full_path": "/opt/miniconda3/pkgs/libzlib-1.3.1-hb4cf58c_1.conda",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "lib/libz.1.3.1.dylib",
+        "path_type": "hardlink",
+        "sha256": "0158a202790dd1af84e2ced358bb61e25c44ddb8c198d44ffc9150482d7be012",
+        "sha256_in_prefix": "0158a202790dd1af84e2ced358bb61e25c44ddb8c198d44ffc9150482d7be012",
+        "size_in_bytes": 124336
+      },
+      {
+        "_path": "lib/libz.1.dylib",
+        "path_type": "softlink",
+        "sha256": "0158a202790dd1af84e2ced358bb61e25c44ddb8c198d44ffc9150482d7be012",
+        "size_in_bytes": 124336
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "None",
+  "sha256": "39df4501327dc21f6ddfd129db23c9ee6cda4c737c1f1a91e700aa965f8febb6",
+  "size": 44567,
+  "subdir": "osx-arm64",
+  "timestamp": 1776974334000,
+  "url": "https://repo.anaconda.com/pkgs/main/osx-arm64/libzlib-1.3.1-hb4cf58c_1.conda",
+  "version": "1.3.1"
+}
